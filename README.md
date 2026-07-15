@@ -3,12 +3,14 @@
 A fully offline, webcam-controlled tennis game. Move left and right in
 front of your camera to steer your paddle and rally against an AI opponent.
 
-No ML models, no CDN scripts, no network calls at play time — motion
-tracking is done with plain frame-differencing on downsampled canvas pixels,
-and the only server is a zero-dependency static file server using Node's
-built-in `http` module.
+**Play online:** https://govardhansatya.github.io/cv-tennis-game/
 
-## Run it
+No ML models, no CDN scripts, no network calls at play time — motion
+tracking is done with background-subtraction on downsampled canvas pixels,
+and the only server (for local/offline use) is a zero-dependency static
+file server using Node's built-in `http` module.
+
+## Run it locally
 
 ```
 node serve.js
@@ -47,9 +49,10 @@ AI paddle's max speed / reaction lag / aim error:
 ## Troubleshooting
 
 - **Paddle jittery or unresponsive**: improve lighting and stand where your
-  movement is clearly visible against the background; the tracker looks for
-  frame-to-frame brightness changes, so a static, evenly-lit background
-  works best.
+  movement is clearly visible against the background; the tracker learns a
+  background model and looks for deviation from it, so a static, evenly-lit
+  background works best. Use the **Back to menu** button on the calibration
+  screen to restart tracking if lighting changes mid-session.
 - **Camera permission blocked**: check your browser's site settings for
   `localhost:8080` and allow camera access, or just play with mouse/arrow
   keys — no camera required.
