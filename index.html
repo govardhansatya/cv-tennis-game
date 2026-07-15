@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV Tennis</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>CV Tennis</h1>
+      <div id="hud" class="hidden">
+        <span id="levelLabel"></span>
+        <span id="controlModeLabel"></span>
+      </div>
+    </header>
+
+    <!-- Menu screen -->
+    <section id="menuScreen" class="screen">
+      <p class="tagline">Move left &amp; right in front of your webcam to steer the paddle. No install, no internet — everything runs locally in your browser.</p>
+      <h2>Choose a level</h2>
+      <div id="levelButtons" class="level-grid">
+        <button class="level-btn" data-level="easy">Easy</button>
+        <button class="level-btn" data-level="medium">Medium</button>
+        <button class="level-btn" data-level="hard">Hard</button>
+        <button class="level-btn" data-level="pro">Pro</button>
+      </div>
+      <p class="hint">First to 11 points wins. If your camera isn't available or permission is denied, you can play with your mouse or arrow keys instead.</p>
+    </section>
+
+    <!-- Calibration screen -->
+    <section id="calibrateScreen" class="screen hidden">
+      <h2>Calibrating&hellip;</h2>
+      <p>Step left and right so we can see you move. The dot should follow you.</p>
+      <div class="preview-wrap">
+        <video id="previewVideo" autoplay playsinline muted></video>
+        <canvas id="previewMarker"></canvas>
+      </div>
+      <p id="calibrateStatus" class="hint"></p>
+      <div class="controls-row">
+        <button id="startMatchBtn" class="hidden">Start Match ▶</button>
+        <button id="calibrateBackBtn">Back to menu</button>
+      </div>
+    </section>
+
+    <!-- Game screen -->
+    <section id="gameScreen" class="screen hidden">
+      <canvas id="gameCanvas" width="400" height="600"></canvas>
+      <div class="controls-row">
+        <button id="pauseBtn">Pause</button>
+        <button id="quitBtn">Quit to menu</button>
+      </div>
+    </section>
+
+    <!-- Game over overlay -->
+    <section id="gameOverScreen" class="screen hidden">
+      <h2 id="gameOverTitle"></h2>
+      <p id="gameOverScore"></p>
+      <div class="controls-row">
+        <button id="replayBtn">Replay</button>
+        <button id="changeLevelBtn">Change level</button>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

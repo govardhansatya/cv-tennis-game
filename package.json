@@ -1,0 +1,11 @@
+{
+  "name": "cv-tennis-game",
+  "version": "1.0.0",
+  "description": "Offline webcam-controlled tennis game — motion tracking via canvas frame differencing, no ML models, no network calls.",
+  "main": "serve.js",
+  "type": "module",
+  "scripts": {
+    "start": "node serve.js"
+  },
+  "license": "ISC"
+}
